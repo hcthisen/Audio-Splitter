@@ -5,6 +5,10 @@ import base64, io, math, uvicorn
 
 app = FastAPI(title="Audio Splitter API")
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 SUPPORTED_EXPORTS = {"mp3": "audio/mpeg", "wav": "audio/wav", "flac": "audio/flac", "ogg": "audio/ogg"}
 
 @app.post("/split")
